@@ -2,6 +2,9 @@ import cv2
 import numpy as np
 import os 
 
+
+users = {77: 'Kolsha', 99: 'PB'}
+
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer.yml')
 cascadePath = "haarcascade_frontalface_default.xml"
@@ -21,8 +24,8 @@ cam.set(3, 640) # set video widht
 cam.set(4, 480) # set video height
 
 # Define min window size to be recognized as a face
-minW = 0.1*cam.get(3)
-minH = 0.1*cam.get(4)
+minW = 0.01*cam.get(3)
+minH = 0.01*cam.get(4)
 
 # minW = 9
 # minH = 10
@@ -50,7 +53,7 @@ while True:
         # Check if confidence is less them 100 ==> "0" is perfect match 
         if (confidence < 100):
             #id = names[id]
-            id = "Kolsha" if id == 77 else id
+            #id = users[id] if id in users else id
             confidence = "  {0}%".format(round(100 - confidence))
         else:
             id = "unknown"

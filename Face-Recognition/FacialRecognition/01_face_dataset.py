@@ -35,7 +35,10 @@ while(True):
         count += 1
 
         # Save the captured image into the datasets folder
-        cv2.imwrite(face_path + "/s" + str(face_id) + '.' + str(count) + ".jpg", gray[y:y+h,x:x+w])
+        face = gray[y:y+h,x:x+w].copy()
+        #face = cv2.resize(face, None,fx=0.3,fy=0.3, interpolation=cv2.INTER_CUBIC);
+
+        cv2.imwrite(face_path + "/"  + str(count) + ".jpg", face)
 
         cv2.imshow('image', img)
 
