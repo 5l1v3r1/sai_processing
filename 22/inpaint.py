@@ -27,7 +27,7 @@ if __name__ == '__main__':
     try:
         fn = sys.argv[1]
     except:
-        fn = '/Users/kolsha/Pictures/photo.jpg'
+        fn = '/Users/kolsha/Pictures/test spaces.jpg'
 
     print(__doc__)
 
@@ -45,9 +45,9 @@ if __name__ == '__main__':
         if ch == 27:
             break
         if ch == ord(' '):
-            res = cv.inpaint(img_mark, mark, 3, cv.INPAINT_TELEA)
+            res = cv.inpaint(img_mark, mark, 1, cv.INPAINT_TELEA)
 
-            res_ns = cv.inpaint(img_mark, mark, 3, cv.INPAINT_NS)
+            res_ns = cv.inpaint(img_mark, mark, 1, cv.INPAINT_NS)
             cv.imshow('Inpaint Telea', res)
 
             cv.imshow('Inpaint Navier-Stokes', res_ns)
